@@ -1,6 +1,7 @@
 import Image from "next/image";
+import MovingTitle from "./components/MovingTitle";
 
 const page = () => {
-    return <Image src="/title.png" alt="starwars" width={500} height={500} />;
+    return <MovingTitle />;
 };
 export default page;

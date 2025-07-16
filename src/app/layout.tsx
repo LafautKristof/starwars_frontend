@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,6 +9,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
+    subsets: ["latin"],
+});
+
+const orbitron = Orbitron({
+    variable: "--font-orbitron",
     subsets: ["latin"],
 });
 
@@ -25,8 +30,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[url('/bg.avif')] bg-cover bg-center `}
+                className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased relative min-h-screen`}
             >
+                {/* ✅ Vaste achtergrond */}
+                <div className="fixed inset-0 -z-10 bg-[url('/bg.avif')] bg-cover bg-center" />
+
+                {/* ✅ Inhoud erbovenop */}
                 {children}
             </body>
         </html>
